@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://b45imnt4rabum"]
+
+[ext_resource type="Script" path="res://scripts/villager.gd" id="1_rlvvj"]
+[ext_resource type="Shader" path="res://scenes/villager.gdshader" id="2_6tark"]
+[ext_resource type="SpriteFrames" uid="uid://gi4535hdfeym" path="res://villager.tres" id="3_uq732"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ougc"]
+shader = ExtResource("2_6tark")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5mo4m"]
+
+[node name="Villager" type="Node2D"]
+script = ExtResource("1_rlvvj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_4ougc")
+use_parent_material = true
+sprite_frames = ExtResource("3_uq732")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.220214
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_5mo4m")

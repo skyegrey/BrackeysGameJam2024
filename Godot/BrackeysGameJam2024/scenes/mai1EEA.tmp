@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bc8x2rhkdmau3"]
+[gd_scene load_steps=4 format=3 uid="uid://bc8x2rhkdmau3"]
 
 [ext_resource type="Script" path="res://scripts/villager_manager.gd" id="1_2ey7b"]
-[ext_resource type="Script" path="res://scenes/main.gd" id="1_brivj"]
 [ext_resource type="Script" path="res://scripts/mouse_input_handler.gd" id="2_6ueel"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ligv4"]
@@ -15,16 +14,13 @@ corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_brivj")
 
 [node name="VillagerManager" type="Node2D" parent="."]
-unique_name_in_owner = true
 script = ExtResource("1_2ey7b")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="MouseInputHandler" type="Node" parent="."]
-unique_name_in_owner = true
 script = ExtResource("2_6ueel")
 
 [node name="Panel" type="Panel" parent="MouseInputHandler"]

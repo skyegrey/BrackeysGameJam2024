@@ -1,10 +1,13 @@
-- [ ] Setup the project
-	- [ ] Make the godot project
-	- [ ] Make the github repo
-- [ ] Villagers prefab
-	- [ ] create node
-	- [ ] Add sprite (placeholder for now)
+- [x] Setup the project
+	- [x] Make the godot project
+	- [x] Make the github repo
+- [x] Villagers prefab
+	- [x] create node
+	- [x] Add sprite (placeholder for now)
 - [ ] Box movement
+	- [x] Node for capturing cursor inputs
+	- [x] Panel for displaying current box selection -- ty wind_of_flatus
+	- [ ] Sprite update for on select
 - [ ] Villagers spread on movement complete
 - [ ] Create island
 	- [ ] Water surrounding the island
