@@ -1,0 +1,19 @@
+- [ ] Setup the project
+	- [ ] Make the godot project
+	- [ ] Make the github repo
+- [ ] Villagers prefab
+	- [ ] create node
+	- [ ] Add sprite (placeholder for now)
+- [ ] Box movement
+- [ ] Villagers spread on movement complete
+- [ ] Create island
+	- [ ] Water surrounding the island
+	- [ ] Beach area
+	- [ ] Grass area
+- [ ] Resources
+	- [ ] Driftwood
+	- [ ] Stone
+- [ ] \Phase changing
+	- [ ] Calm Phase
+	- [ ] Storm phase
+- [ ] 

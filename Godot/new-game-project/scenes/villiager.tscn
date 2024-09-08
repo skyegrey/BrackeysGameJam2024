@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://b45imnt4rabum"]
+
+[ext_resource type="Texture2D" uid="uid://dhdmhg3ugjcur" path="res://assets/Premium Charakter Spritesheet.png" id="1_3kedy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hykt8"]
+atlas = ExtResource("1_3kedy")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klngw"]
+atlas = ExtResource("1_3kedy")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyybj"]
+atlas = ExtResource("1_3kedy")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6hh1"]
+atlas = ExtResource("1_3kedy")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mw23j"]
+atlas = ExtResource("1_3kedy")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3lcx"]
+atlas = ExtResource("1_3kedy")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cq8we"]
+atlas = ExtResource("1_3kedy")
+region = Rect2(288, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdxoa"]
+atlas = ExtResource("1_3kedy")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bjlim"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hykt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_klngw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyybj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6hh1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mw23j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3lcx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cq8we")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdxoa")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 9.0
+}]
+
+[node name="Villiager" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bjlim")
+animation = &"idle"
+frame_progress = 0.220214
