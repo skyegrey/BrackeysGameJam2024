@@ -4,19 +4,30 @@
 - [x] Villagers prefab
 	- [x] create node
 	- [x] Add sprite (placeholder for now)
-- [ ] Box movement
+- [x] Box movement
 	- [x] Node for capturing cursor inputs
 	- [x] Panel for displaying current box selection -- ty wind_of_flatus
-	- [ ] Sprite update for on select
-- [ ] Villagers spread on movement complete
-- [ ] Create island
-	- [ ] Water surrounding the island
-	- [ ] Beach area
-	- [ ] Grass area
-- [ ] Resources
-	- [ ] Driftwood
-	- [ ] Stone
+	- [x] Sprite update for on select
+- [x] Villagers spread on movement complete
+- [x] Create island
+	- [x] Water surrounding the island
+	- [x] Beach area
+	- [x] Grass area
+- [x] Resources
+	- [x] Driftwood
+	- [x] Stone
+- [x] Base
+- [x] Update villager sprites from txpeng
+	- [ ] Adjust scaling
+- [ ] Add hut for spawning more villagers
+- [ ] Add stone tower
+- [ ] Add arrow tower
+- [ ] Add walls
+- [ ] Add enemies
+- [ ] Add music
+- [ ] Add wave ambiance
+- [ ] Add canvas modulate
 - [ ] \Phase changing
 	- [ ] Calm Phase
 	- [ ] Storm phase
-- [ ] 
+- [ ] sorry yapping offscreen lool

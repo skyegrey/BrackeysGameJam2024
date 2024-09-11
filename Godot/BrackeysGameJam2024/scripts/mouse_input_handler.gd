@@ -8,7 +8,9 @@ class_name MouseInputHandler extends Node
 @onready var drag_starting_position: Vector2
 @onready var last_drag_position: Vector2
 
+signal mouse_drag_started
 signal mouse_drag_finished
+signal mouse_right_clicked
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,9 +20,11 @@ func _ready():
 func _process(delta):
 	pass
 
-func _input(event):
+func _unhandled_input(event):
 	if event is InputEventMouseButton:
-		if event.pressed:
+		if event.button_index == MOUSE_BUTTON_RIGHT:
+			mouse_right_clicked.emit(_adjust_event_position_for_window_size(event.position))
+		elif event.pressed:
 			_start_mouse_drag(_adjust_event_position_for_window_size(event.position))
 		else:
 			_end_mouse_drag()
@@ -31,6 +35,7 @@ func _adjust_event_position_for_window_size(event_position):
 	return event_position - Vector2(get_viewport().size/2)
 
 func _start_mouse_drag(position):
+	mouse_drag_started.emit()
 	drag_panel.visible = true
 	is_dragging = true
 	drag_starting_position = position

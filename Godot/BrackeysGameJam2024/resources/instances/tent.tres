@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Builduing" load_steps=2 format=3 uid="uid://dc1ooa3k4go3c"]
+
+[ext_resource type="Script" path="res://resources/Building.gd" id="1_si2kn"]
+
+[resource]
+script = ExtResource("1_si2kn")
+building_name = "Tent"
+wood_cost = 1
+stone_cost = 1

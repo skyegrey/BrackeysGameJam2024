@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bcnnme2votu5h" path="res://assets/water_animated_texture.tres" id="6_5xwdj"]
 [ext_resource type="Texture2D" uid="uid://4wcph12r3rd8" path="res://assets/Darker_Grass_Hills_Tiles_v2.png" id="6_lrrma"]
 [ext_resource type="Texture2D" uid="uid://ln3lksvldua4" path="res://assets/Bush_Tiles.png" id="7_6pwb3"]
-[ext_resource type="Script" path="res://scenes/building_container.gd" id="7_r5th0"]
+[ext_resource type="Script" path="res://scenes/building_menu.gd" id="7_l0c12"]
 [ext_resource type="Script" path="res://scenes/wood_resource.gd" id="8_f44k5"]
 [ext_resource type="Texture2D" uid="uid://bs2q2aoerpike" path="res://assets/tools-n-meterial-items.png" id="8_fn3f4"]
 [ext_resource type="Texture2D" uid="uid://drsvgajj4vcm0" path="res://assets/ui/grey_panel.png" id="10_03qxy"]
@@ -468,7 +468,6 @@ offset_left = 150.0
 offset_top = -100.0
 offset_right = 450.0
 grow_vertical = 0
-script = ExtResource("7_r5th0")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Camera2D/CanvasLayer/UI/BuildingContainer"]
 auto_translate_mode = 1
@@ -483,9 +482,9 @@ patch_margin_bottom = 5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/CanvasLayer/UI/BuildingContainer"]
 layout_mode = 2
+script = ExtResource("7_l0c12")
 
 [node name="Tent" type="MarginContainer" parent="Camera2D/CanvasLayer/UI/BuildingContainer/HBoxContainer"]
-unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bc8x2rhkdmau3"]
+[gd_scene load_steps=30 format=3 uid="uid://bc8x2rhkdmau3"]
 
 [ext_resource type="Script" path="res://scripts/villager_manager.gd" id="1_2ey7b"]
 [ext_resource type="Script" path="res://scenes/main.gd" id="1_brivj"]
@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://bcnnme2votu5h" path="res://assets/water_animated_texture.tres" id="6_5xwdj"]
 [ext_resource type="Texture2D" uid="uid://4wcph12r3rd8" path="res://assets/Darker_Grass_Hills_Tiles_v2.png" id="6_lrrma"]
 [ext_resource type="Texture2D" uid="uid://ln3lksvldua4" path="res://assets/Bush_Tiles.png" id="7_6pwb3"]
-[ext_resource type="Script" path="res://scenes/building_container.gd" id="7_r5th0"]
 [ext_resource type="Script" path="res://scenes/wood_resource.gd" id="8_f44k5"]
 [ext_resource type="Texture2D" uid="uid://bs2q2aoerpike" path="res://assets/tools-n-meterial-items.png" id="8_fn3f4"]
 [ext_resource type="Texture2D" uid="uid://drsvgajj4vcm0" path="res://assets/ui/grey_panel.png" id="10_03qxy"]
@@ -19,9 +18,6 @@
 [ext_resource type="Script" path="res://scenes/campfire.gd" id="10_xunb1"]
 [ext_resource type="Texture2D" uid="uid://bk0daoehh23xn" path="res://icon.svg" id="11_v4qd6"]
 [ext_resource type="Script" path="res://scenes/stone_resource.gd" id="17_f1yfd"]
-[ext_resource type="Script" path="res://scenes/building_manager.gd" id="18_kwbcu"]
-[ext_resource type="Script" path="res://scenes/villager_hut.gd" id="18_w08u4"]
-[ext_resource type="Texture2D" uid="uid://dcel2iwapasle" path="res://assets/tent.png" id="20_s7yot"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5o1ik"]
 texture = ExtResource("4_yx3ju")
@@ -277,13 +273,6 @@ radius = 38.71
 atlas = ExtResource("8_fn3f4")
 region = Rect2(16, 33, 16, 15)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m04rw"]
-bg_color = Color(0, 0.72358, 0.255758, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ligv4"]
 border_width_left = 2
 border_width_top = 2
@@ -312,7 +301,7 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("2_fl2u0")
 
-[node name="ResourceContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/UI"]
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/UI"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -321,7 +310,7 @@ offset_left = -146.0
 offset_bottom = 48.0
 grow_horizontal = 0
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Camera2D/CanvasLayer/UI/ResourceContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="Camera2D/CanvasLayer/UI/MarginContainer"]
 self_modulate = Color(0.909804, 0.811765, 0.65098, 1)
 layout_mode = 2
 texture = ExtResource("10_03qxy")
@@ -331,21 +320,21 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/UI/ResourceContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/UI/MarginContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="ResourcesDisplay" type="HBoxContainer" parent="Camera2D/CanvasLayer/UI/ResourceContainer/MarginContainer"]
+[node name="ResourcesDisplay" type="HBoxContainer" parent="Camera2D/CanvasLayer/UI/MarginContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="WoodDisplay" type="MarginContainer" parent="Camera2D/CanvasLayer/UI/ResourceContainer/MarginContainer/ResourcesDisplay"]
+[node name="WoodDisplay" type="MarginContainer" parent="Camera2D/CanvasLayer/UI/MarginContainer/MarginContainer/ResourcesDisplay"]
 auto_translate_mode = 1
 layout_mode = 2
 
-[node name="DisplayPanel" type="NinePatchRect" parent="Camera2D/CanvasLayer/UI/ResourceContainer/MarginContainer/ResourcesDisplay/WoodDisplay"]
+[node name="DisplayPanel" type="NinePatchRect" parent="Camera2D/CanvasLayer/UI/MarginContainer/MarginContainer/ResourcesDisplay/WoodDisplay"]
 auto_translate_mode = 1
 self_modulate = Color(0.726392, 0.596278, 0.374821, 1)
 layout_mode = 2
@@ -356,23 +345,23 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="ResourceContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/UI/ResourceContainer/MarginContainer/ResourcesDisplay/WoodDisplay"]
+[node name="ResourceContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/UI/MarginContainer/MarginContainer/ResourcesDisplay/WoodDisplay"]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 5
 
-[node name="ResourceDisplayHbox" type="HBoxContainer" parent="Camera2D/CanvasLayer/UI/ResourceContainer/MarginContainer/ResourcesDisplay/WoodDisplay/ResourceContainer"]
+[node name="ResourceDisplayHbox" type="HBoxContainer" parent="Camera2D/CanvasLayer/UI/MarginContainer/MarginContainer/ResourcesDisplay/WoodDisplay/ResourceContainer"]
 auto_translate_mode = 1
 layout_mode = 2
 
-[node name="ResourceIcon" type="TextureRect" parent="Camera2D/CanvasLayer/UI/ResourceContainer/MarginContainer/ResourcesDisplay/WoodDisplay/ResourceContainer/ResourceDisplayHbox"]
+[node name="ResourceIcon" type="TextureRect" parent="Camera2D/CanvasLayer/UI/MarginContainer/MarginContainer/ResourcesDisplay/WoodDisplay/ResourceContainer/ResourceDisplayHbox"]
 auto_translate_mode = 1
 layout_mode = 2
 texture = ExtResource("4_06pci")
 stretch_mode = 4
 
-[node name="WoodAmountLabel" type="Label" parent="Camera2D/CanvasLayer/UI/ResourceContainer/MarginContainer/ResourcesDisplay/WoodDisplay/ResourceContainer/ResourceDisplayHbox"]
+[node name="WoodAmountLabel" type="Label" parent="Camera2D/CanvasLayer/UI/MarginContainer/MarginContainer/ResourcesDisplay/WoodDisplay/ResourceContainer/ResourceDisplayHbox"]
 unique_name_in_owner = true
 auto_translate_mode = 1
 layout_mode = 2
@@ -381,11 +370,11 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 32
 text = "3"
 
-[node name="StoneDisplay" type="MarginContainer" parent="Camera2D/CanvasLayer/UI/ResourceContainer/MarginContainer/ResourcesDisplay"]
+[node name="StoneDisplay" type="MarginContainer" parent="Camera2D/CanvasLayer/UI/MarginContainer/MarginContainer/ResourcesDisplay"]
 auto_translate_mode = 1
 layout_mode = 2
 
-[node name="DisplayPanel" type="NinePatchRect" parent="Camera2D/CanvasLayer/UI/ResourceContainer/MarginContainer/ResourcesDisplay/StoneDisplay"]
+[node name="DisplayPanel" type="NinePatchRect" parent="Camera2D/CanvasLayer/UI/MarginContainer/MarginContainer/ResourcesDisplay/StoneDisplay"]
 auto_translate_mode = 1
 self_modulate = Color(0.726392, 0.596278, 0.374821, 1)
 layout_mode = 2
@@ -396,23 +385,23 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="ResourceContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/UI/ResourceContainer/MarginContainer/ResourcesDisplay/StoneDisplay"]
+[node name="ResourceContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/UI/MarginContainer/MarginContainer/ResourcesDisplay/StoneDisplay"]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 5
 
-[node name="ResourceDisplayHbox" type="HBoxContainer" parent="Camera2D/CanvasLayer/UI/ResourceContainer/MarginContainer/ResourcesDisplay/StoneDisplay/ResourceContainer"]
+[node name="ResourceDisplayHbox" type="HBoxContainer" parent="Camera2D/CanvasLayer/UI/MarginContainer/MarginContainer/ResourcesDisplay/StoneDisplay/ResourceContainer"]
 auto_translate_mode = 1
 layout_mode = 2
 
-[node name="ResourceIcon" type="TextureRect" parent="Camera2D/CanvasLayer/UI/ResourceContainer/MarginContainer/ResourcesDisplay/StoneDisplay/ResourceContainer/ResourceDisplayHbox"]
+[node name="ResourceIcon" type="TextureRect" parent="Camera2D/CanvasLayer/UI/MarginContainer/MarginContainer/ResourcesDisplay/StoneDisplay/ResourceContainer/ResourceDisplayHbox"]
 auto_translate_mode = 1
 layout_mode = 2
 texture = ExtResource("5_8r8ol")
 stretch_mode = 4
 
-[node name="StoneAmountLabel" type="Label" parent="Camera2D/CanvasLayer/UI/ResourceContainer/MarginContainer/ResourcesDisplay/StoneDisplay/ResourceContainer/ResourceDisplayHbox"]
+[node name="StoneAmountLabel" type="Label" parent="Camera2D/CanvasLayer/UI/MarginContainer/MarginContainer/ResourcesDisplay/StoneDisplay/ResourceContainer/ResourceDisplayHbox"]
 unique_name_in_owner = true
 auto_translate_mode = 1
 layout_mode = 2
@@ -421,10 +410,10 @@ theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 32
 text = "3"
 
-[node name="VillagerDisplay" type="MarginContainer" parent="Camera2D/CanvasLayer/UI/ResourceContainer/MarginContainer/ResourcesDisplay"]
+[node name="VillagerDisplay" type="MarginContainer" parent="Camera2D/CanvasLayer/UI/MarginContainer/MarginContainer/ResourcesDisplay"]
 layout_mode = 2
 
-[node name="DisplayPanel" type="NinePatchRect" parent="Camera2D/CanvasLayer/UI/ResourceContainer/MarginContainer/ResourcesDisplay/VillagerDisplay"]
+[node name="DisplayPanel" type="NinePatchRect" parent="Camera2D/CanvasLayer/UI/MarginContainer/MarginContainer/ResourcesDisplay/VillagerDisplay"]
 auto_translate_mode = 1
 self_modulate = Color(0.726392, 0.596278, 0.374821, 1)
 layout_mode = 2
@@ -435,22 +424,22 @@ patch_margin_top = 5
 patch_margin_right = 5
 patch_margin_bottom = 5
 
-[node name="ResourceContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/UI/ResourceContainer/MarginContainer/ResourcesDisplay/VillagerDisplay"]
+[node name="ResourceContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/UI/MarginContainer/MarginContainer/ResourcesDisplay/VillagerDisplay"]
 auto_translate_mode = 1
 layout_mode = 2
 theme_override_constants/margin_left = 0
 theme_override_constants/margin_right = 5
 
-[node name="ResourceDisplayHbox" type="HBoxContainer" parent="Camera2D/CanvasLayer/UI/ResourceContainer/MarginContainer/ResourcesDisplay/VillagerDisplay/ResourceContainer"]
+[node name="ResourceDisplayHbox" type="HBoxContainer" parent="Camera2D/CanvasLayer/UI/MarginContainer/MarginContainer/ResourcesDisplay/VillagerDisplay/ResourceContainer"]
 auto_translate_mode = 1
 layout_mode = 2
 
-[node name="ResourceIcon" type="TextureRect" parent="Camera2D/CanvasLayer/UI/ResourceContainer/MarginContainer/ResourcesDisplay/VillagerDisplay/ResourceContainer/ResourceDisplayHbox"]
+[node name="ResourceIcon" type="TextureRect" parent="Camera2D/CanvasLayer/UI/MarginContainer/MarginContainer/ResourcesDisplay/VillagerDisplay/ResourceContainer/ResourceDisplayHbox"]
 auto_translate_mode = 1
 layout_mode = 2
 texture = ExtResource("10_t5502")
 
-[node name="VillagerAmountLabel" type="Label" parent="Camera2D/CanvasLayer/UI/ResourceContainer/MarginContainer/ResourcesDisplay/VillagerDisplay/ResourceContainer/ResourceDisplayHbox"]
+[node name="VillagerAmountLabel" type="Label" parent="Camera2D/CanvasLayer/UI/MarginContainer/MarginContainer/ResourcesDisplay/VillagerDisplay/ResourceContainer/ResourceDisplayHbox"]
 unique_name_in_owner = true
 auto_translate_mode = 1
 layout_mode = 2
@@ -458,83 +447,6 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 32
 text = "3"
-
-[node name="BuildingContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/UI"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 150.0
-offset_top = -100.0
-offset_right = 450.0
-grow_vertical = 0
-script = ExtResource("7_r5th0")
-
-[node name="NinePatchRect" type="NinePatchRect" parent="Camera2D/CanvasLayer/UI/BuildingContainer"]
-auto_translate_mode = 1
-self_modulate = Color(0.909804, 0.811765, 0.65098, 1)
-layout_mode = 2
-texture = ExtResource("10_03qxy")
-region_rect = Rect2(0, 0, 100, 100)
-patch_margin_left = 5
-patch_margin_top = 5
-patch_margin_right = 5
-patch_margin_bottom = 5
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Camera2D/CanvasLayer/UI/BuildingContainer"]
-layout_mode = 2
-
-[node name="Tent" type="MarginContainer" parent="Camera2D/CanvasLayer/UI/BuildingContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
-
-[node name="DisplayPanel" type="NinePatchRect" parent="Camera2D/CanvasLayer/UI/BuildingContainer/HBoxContainer/Tent"]
-auto_translate_mode = 1
-self_modulate = Color(0.682353, 0.831373, 0.6, 1)
-layout_mode = 2
-texture = ExtResource("10_03qxy")
-region_rect = Rect2(0, 0, 100, 100)
-patch_margin_left = 5
-patch_margin_top = 5
-patch_margin_right = 5
-patch_margin_bottom = 5
-
-[node name="MarginContainer" type="MarginContainer" parent="Camera2D/CanvasLayer/UI/BuildingContainer/HBoxContainer/Tent"]
-layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 3
-
-[node name="TextureRect" type="TextureRect" parent="Camera2D/CanvasLayer/UI/BuildingContainer/HBoxContainer/Tent/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("20_s7yot")
-expand_mode = 2
-
-[node name="SelectedElementDisplay" type="MarginContainer" parent="Camera2D/CanvasLayer/UI"]
-auto_translate_mode = 1
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -150.0
-offset_right = 150.0
-grow_vertical = 0
-
-[node name="NinePatchRect" type="NinePatchRect" parent="Camera2D/CanvasLayer/UI/SelectedElementDisplay"]
-auto_translate_mode = 1
-self_modulate = Color(0.909804, 0.811765, 0.65098, 1)
-layout_mode = 2
-texture = ExtResource("10_03qxy")
-region_rect = Rect2(0, 0, 100, 100)
-patch_margin_left = 5
-patch_margin_top = 5
-patch_margin_right = 5
-patch_margin_bottom = 5
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(1.5, 1.5)
@@ -597,31 +509,6 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StoneResource/ResourceHitbox"]
 shape = SubResource("CircleShape2D_0cm0w")
 metadata/_edit_lock_ = true
-
-[node name="BuildingManager" type="Node2D" parent="."]
-script = ExtResource("18_kwbcu")
-
-[node name="VillagerHut" type="Node2D" parent="BuildingManager"]
-position = Vector2(-169, -154)
-script = ExtResource("18_w08u4")
-
-[node name="Sprite2D" type="Sprite2D" parent="BuildingManager/VillagerHut"]
-texture = ExtResource("20_s7yot")
-offset = Vector2(0, -26)
-
-[node name="NewVillagerSpawnTimer" type="Timer" parent="BuildingManager/VillagerHut"]
-wait_time = 10.0
-autostart = true
-
-[node name="ProgressBar" type="ProgressBar" parent="BuildingManager/VillagerHut"]
-offset_left = -24.0
-offset_top = -35.0
-offset_right = 24.0
-offset_bottom = -30.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_m04rw")
-max_value = 1.0
-value = 0.5
-show_percentage = false
 
 [node name="MouseInputHandler" type="Node" parent="."]
 unique_name_in_owner = true

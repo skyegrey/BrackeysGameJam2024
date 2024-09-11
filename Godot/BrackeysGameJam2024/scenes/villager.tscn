@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b45imnt4rabum"]
+[gd_scene load_steps=8 format=3 uid="uid://b45imnt4rabum"]
 
 [ext_resource type="Script" path="res://scripts/villager.gd" id="1_rlvvj"]
 [ext_resource type="Shader" path="res://scenes/villager.gdshader" id="2_6tark"]
 [ext_resource type="SpriteFrames" uid="uid://gi4535hdfeym" path="res://villager.tres" id="3_uq732"]
+[ext_resource type="Texture2D" uid="uid://bs2q2aoerpike" path="res://assets/tools-n-meterial-items.png" id="4_b24kk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4ougc"]
 shader = ExtResource("2_6tark")
@@ -13,6 +14,11 @@ shader_parameter/inside = false
 shader_parameter/add_margins = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5mo4m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qm4b2"]
+resource_local_to_scene = true
+atlas = ExtResource("4_b24kk")
+region = Rect2(48, 32, 16, 16)
 
 [node name="Villager" type="Node2D"]
 script = ExtResource("1_rlvvj")
@@ -29,3 +35,12 @@ frame_progress = 0.220214
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("CircleShape2D_5mo4m")
+
+[node name="ResourceCollectionTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="HeldItemSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -14)
+texture = SubResource("AtlasTexture_qm4b2")

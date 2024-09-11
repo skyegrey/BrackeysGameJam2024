@@ -1,0 +1,30 @@
+[gd_resource type="AnimatedTexture" load_steps=6 format=3 uid="uid://bcnnme2votu5h"]
+
+[ext_resource type="Texture2D" uid="uid://bk4mmoth3aylo" path="res://assets/Water.png" id="1_3truh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uc700"]
+atlas = ExtResource("1_3truh")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nn1w"]
+atlas = ExtResource("1_3truh")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s37hm"]
+atlas = ExtResource("1_3truh")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnqmi"]
+atlas = ExtResource("1_3truh")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+resource_local_to_scene = true
+frames = 4
+frame_0/texture = SubResource("AtlasTexture_uc700")
+frame_1/texture = SubResource("AtlasTexture_5nn1w")
+frame_1/duration = 1.0
+frame_2/texture = SubResource("AtlasTexture_s37hm")
+frame_2/duration = 0.1
+frame_3/texture = SubResource("AtlasTexture_xnqmi")
+frame_3/duration = 1.0
